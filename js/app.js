@@ -1,7 +1,8 @@
 function render(evt){
   console.log('DOM Content Loaded');
   console.log(evt);
-  
+
+  let event = new Event('build');
   let buttonDOMElement = document.querySelector('#buttonOne');
 
   var example_click_handler = function (ev){
@@ -13,6 +14,14 @@ function render(evt){
   };
    
   buttonDOMElement.addEventListener('click', example_click_handler);
+
+  // Listen for the event
+  buttonDOMElement.addEventListener('build', function(evt){
+    console.log(evt);
+  });
+
+  // Dispatch Event
+  buttonDOMElement.dispatchEvent(event);
 }
 
 document.addEventListener('DOMContentLoaded', render);
