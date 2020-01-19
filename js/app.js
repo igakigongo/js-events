@@ -9,6 +9,9 @@ function render(evt){
 
     console.log(ev);
 
+    // Dispatch Event
+    ev.target.dispatchEvent(event);
+
     var objKind = (ev instanceof Event) ? "EventPrototype" : "ObjectPrototype";
     alert("We got a click event at " + ev.timeStamp + " with an argument object derived from: " + objKind );
   };
@@ -19,9 +22,6 @@ function render(evt){
   buttonDOMElement.addEventListener('build', function(evt){
     console.log(evt);
   });
-
-  // Dispatch Event
-  buttonDOMElement.dispatchEvent(event);
 }
 
 document.addEventListener('DOMContentLoaded', render);
